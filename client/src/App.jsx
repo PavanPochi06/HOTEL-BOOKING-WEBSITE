@@ -12,22 +12,21 @@ import AddRoom from "./pages/hotelOwner/AddRoom";
 import ListRoom from "./pages/hotelOwner/ListRoom";
 
 const App = () => {
-
   const isOwnerPath = useLocation().pathname.includes("owner");
   return (
     <div>
       {!isOwnerPath && <Navbar />}
       {false && <HotelReg />}
-      <div className="min-h-[70vh]">
+      <div className="min-h-screen">
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/rooms" element={<AllRooms />} />
           <Route path="/rooms/:id" element={<RoomDetails />} />
           <Route path="/my-bookings" element={<MyBookings />} />
-          <Route path="/owner" element={<Layout />} >
-                <Route index element={<Dashboard />} />
-                <Route path="add-room" element={<AddRoom />} />
-                <Route path="list-room" element={<ListRoom />} />
+          <Route path="/owner" element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="add-room" element={<AddRoom />} />
+            <Route path="list-room" element={<ListRoom />} />
           </Route>
         </Routes>
       </div>
